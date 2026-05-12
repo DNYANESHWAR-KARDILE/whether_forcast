@@ -5,13 +5,15 @@
 }
 
 body {
-    background-color: gainsboro;
+    background-color: #dcf6fa;
+    font-family: 'Inter', sans-serif;
 }
+
 /* Nabbar */
 .navbar {
     width: 100%;
-    height: 70px;
-    background-color: #e5e7eb;
+    height: 4.6rem;
+    background-color: white;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -20,16 +22,16 @@ body {
 .logo {
     background-image: url(img/logobl.png);
     background-size: cover;
-    width: 60px;
-    height: 60px;
+    width: 4rem;
+    height: 4rem;
     position: absolute;
-    left: 60px;
+    left: 4rem;
 }
 
 .navbar h2 {
     color: #2563EB;
     position: absolute;
-    left: 130px;
+    left: 8.6rem;
 }
 
 .nav_hero {
@@ -41,10 +43,11 @@ body {
 
 .hero_link a {
     color: black;
+    text-align: center;
     text-decoration: none;
-    margin-left: 40px;
-    font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
+    margin-left: 2.6rem;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
 }
 
@@ -55,13 +58,19 @@ body {
 
 .signin button {
     background-color: #0058BE;
-    width: 103px;
-    height: 32px;
+    width: 6.8rem;
+    height: 2.1rem;
     color: #ffffff;
-    font-size: 12px;
-    border-radius: 15px;
+    font-size: 0.8rem;
+    border-radius: 1rem;
     position: relative;
-    right: 40px;
+    right: 2.6rem;
+    cursor: pointer;
+}
+
+.signin button:hover {
+    background-color: white;
+    color: black;
 }
 
 /* Hero Section */
@@ -69,4 +78,104 @@ body {
 .hero_section {
     width: 100%;
     height: 1500px;
+    background-color: #dcf6fa;
+}
+
+.heroheading {
+    text-align: center;
+}
+
+.heroheading h1 {
+    color: #1D4ED8;
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+    margin-top: 7rem;
+
+}
+
+.heroheading p {
+    font-size: 1.3rem;
+    text-align: center;
+    color: #6B7280;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+}
+
+.p1 {
+    margin-top: 2rem;
+}
+
+.p2 {
+    margin-top: 0.8rem;
+}
+
+/* search input */
+
+.input_search {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 2rem;
+}
+
+.search_box {
+    width: 750px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 12px;
+    border-radius: 60px;
+
+
+}
+
+.search_box button {
+    background-color: #1D4ED8;
+    width: 130px;
+    height: 40px;
+    color: #ffffff;
+    font-size: 18px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+}
+
+.search_box input {
+    height: 2.6rem;
+    width: 75%;
+    border-radius: 1rem;
+    border: none;
+    font-size: 1.3rem;
+}
+
+.search_box input:focus {
+    outline: none;
+
+}
+
+/* result box */
+
+.resultbox {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 6rem;
+}
+
+.box1 {
+    width: 940px;
+    height: 400px;
+    background-color: white;
+    margin-left: 40px;
+    border-radius: 1rem;
+}
+
+.box2 {
+    width: 440px;
+    height: 400px;
+    background-color: white;
+    margin-right: 40px;
+     border-radius: 1rem;
 }
