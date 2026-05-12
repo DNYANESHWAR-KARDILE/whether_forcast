@@ -1,0 +1,306 @@
+/* About Page Specific Styles */
+
+.about_hero_section {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 8rem; /* to account for fixed navbar */
+    padding-bottom: 4rem;
+    background-color: #dcf6fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+.about_container, .developer_container {
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-out;
+}
+
+.about_header {
+    text-align: center;
+    border-radius: 24px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about_header:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px 0 rgba(31, 38, 135, 0.15);
+}
+
+.about_header h1 {
+    color: #1D4ED8;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.about_header .subtitle {
+    color: #6B7280;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.about_header .desc {
+    color: #4B5563;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about_gallery {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.gallery_img_wrapper {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    border-radius: 24px;
+    padding: 1rem;
+    transition: all 0.4s ease;
+    animation: fadeIn 0.8s ease-out backwards;
+}
+
+.gallery_img_wrapper:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px 0 rgba(31, 38, 135, 0.25);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.gallery_img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.features_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature_card {
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.8s ease-out backwards;
+}
+
+.feature_card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px 0 rgba(31, 38, 135, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.feature_icon {
+    font-size: 3rem;
+    color: #2563EB;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #1D4ED8, #60A5FA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;
+}
+
+.feature_card:hover .feature_icon {
+    transform: scale(1.1);
+}
+
+.feature_card h3 {
+    color: #1F2937;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.feature_card p {
+    color: #6B7280;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Developer Section */
+#developer {
+    scroll-margin-top: 6rem;
+}
+
+#developer:target .developer_card {
+    animation: highlightCard 2s ease-out;
+}
+
+@keyframes highlightCard {
+    0% {
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    }
+    30% {
+        box-shadow: 0 0 40px 0 rgba(37, 99, 235, 0.6);
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        transform: scale(1);
+    }
+}
+
+.developer_card {
+    border-radius: 24px;
+    padding: 3rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.developer_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px 0 rgba(31, 38, 135, 0.15);
+}
+
+.profile_img_container {
+    width: 360px;
+    height: 360px;
+    margin: 0 auto 2rem;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+.profile_img_container:hover {
+    box-shadow: 0 20px 45px rgba(29, 78, 216, 0.25);
+    transform: translateY(-5px);
+}
+
+.profile_img_wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.profile_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.profile_img_wrapper:hover .profile_img {
+    transform: scale(1.1);
+}
+
+.developer_card h2 {
+    color: #1D4ED8;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.developer_card .role {
+    color: #2563EB;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.developer_card .intro {
+    color: #6B7280;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.dev_social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.dev_social a {
+    color: #4B5563;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.dev_social a:hover {
+    color: #1D4ED8;
+    transform: scale(1.1) translateY(-3px);
+    text-shadow: 0 5px 15px rgba(29, 78, 216, 0.4);
+}
+
+/* Navbar active state */
+.hero_link a.active {
+    color: #1D4ED8;
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about_hero_section {
+        padding-top: 6rem;
+    }
+    
+    .about_header {
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .about_header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .features_grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .developer_card {
+        padding: 1.5rem;
+    }
+
+    .profile_img_container {
+        width: 240px;
+        height: 240px;
+        max-width: 100%;
+        margin: 0 auto 1.5rem;
+    }
+}
