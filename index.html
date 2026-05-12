@@ -9,26 +9,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
 </head>
 
 <body>
     <!-- Navbar -->
-    <div class="navbar">
-        <div class="logo"></div>
-        <h2>Sky Glass</h2>
-        <div class="nav_hero">
-            <div class="hero_link">
-                <a href="#">Home</a>
-                <a href="#">Whether</a>
-                <a href="#">Forcast</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
+    <section id="nav">
+        <div class="navbar">
+            <div class="logo"></div>
+            <h2>Sky Glass</h2>
+            <div class="nav_hero">
+                <div class="hero_link">
+                    <a href="#">Home</a>
+                    <a href="#forc">Whether</a>
+                    <a href="#">Forcast</a>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="signin">
+                <button>Sign in</button>
             </div>
         </div>
-        <div class="signin">
-            <button>Sign in</button>
-        </div>
-    </div>
+
+
+    </section>
 
     <!-- Hero Section -->
     <div class="hero_section">
@@ -50,22 +57,158 @@
         <!-- result box -->
         <div class="resultbox">
             <div class="box1">
-                <p></p>
+                <div class="left">
+                    <div class="location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p> San Francisco, CA</p>
+                    </div>
+                    <div class="temprature">
+                        <p class="fera">72°F</p>
+                        <p class="ferai">Partly Cloudy</p>
+                    </div>
+                    <div class="tempinfo">
+                        <div class="humidity">
+                            <p>Humidity: 45%</p>
+                        </div>
+                        <div class="wind">
+                            <p>Wind: 10mph</p>
+                        </div>
+                    </div>
+                </div>
+                <section id="forc">
+                    <div class="right">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                        <p>Feels like 68°F</p>
+                    </div>
+                </section>
+
+
             </div>
             <div class="box2">
-                <p></p>
+                <div class="uvhead">
+                    <p id="ut">UV INDEX</p>
+                    <i class="fa-solid fa-sun" style="color: rgb(255, 212, 59);"></i>
+                </div>
+
+                <p id="uvindex">4</p>
+                <p id="uvstate">Moderate</p>
+                <div class="progress">
+                    <div class="fill"></div>
+                </div>
+                <p id="pm">Protection recommended from 11am to 4pm.</p>
+
             </div>
         </div>
 
+
+
         <!-- weakly result -->
-         <p>Weekly Forecast</p>
+        <p id="wp">Weekly Forecast</p>
 
-        <div class="weakresult">
-            <div class="wbox1"></div>
+        <section class="forecast-section">
 
-        </div>
+
+            <div class="forecast-grid">
+                <div class="forecast-card glass">
+
+                    <h4>MON</h4>
+                    <span class="material-symbols-outlined">
+                        sunny
+                    </span>
+                    <h3>78° / 62°</h3>
+                    <p>Sunny</p>
+                </div>
+
+                <div class="forecast-card glass">
+                    <h4>TUE</h4>
+                    <span class="material-symbols-outlined">
+                        partly_cloudy_day
+                    </span>
+                    <h3>75° / 60°</h3>
+                    <p>Cloudy</p>
+                </div>
+
+                <div class="forecast-card glass">
+                    <h4>WED</h4>
+                    <span class="material-symbols-outlined">
+                        rainy
+                    </span>
+                    <h3>68° / 55°</h3>
+                    <p>Showers</p>
+                </div>
+
+                <div class="forecast-card glass">
+                    <h4>THU</h4>
+                    <span class="material-symbols-outlined">
+                        cloudy_snowing
+                    </span>
+                    <h3>70° / 58°</h3>
+                    <p>Overcast</p>
+                </div>
+
+                <div class="forecast-card glass">
+                    <h4>FRI</h4>
+                    <span class="material-symbols-outlined">
+                        sunny
+                    </span>
+                    <h3>74° / 61°</h3>
+                    <p>Clear</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- map section -->
+        <section id="rodmap">
+            <div class="map" id="map"></div>
+        </section>
+
+
+
     </div>
 
+    <!-- footer section -->
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <h2>Sky Glass</h2>
+                <p>Your daily weather updates.</p>
+                <img src="img/logobl.png" alt="" height="70px" width="70px">
+
+
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Forecast</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Sky Glass. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi5PjJl2d7AVUquNmXVOz-rEv7zuLrx6M&callback=initMap"
+        async defer>
+        </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
