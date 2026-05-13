@@ -261,4 +261,31 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Hamburger menu logic
+    const hamburger = document.getElementById('hamburger-menu');
+    const overlayMenu = document.getElementById('overlay_menu');
+    if (hamburger && overlayMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            overlayMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        const menuLinks = overlayMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                overlayMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!hamburger.contains(event.target) && !overlayMenu.contains(event.target) && overlayMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                overlayMenu.classList.remove('active');
+            }
+        });
+    }
 });

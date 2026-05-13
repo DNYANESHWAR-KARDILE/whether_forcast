@@ -73,6 +73,27 @@ async function fetchWeatherByCity(cityName) {
         
         document.querySelector("#forc .right p").innerText = `Feels like ${Math.round(w.main.feels_like)}°C`;
 
+        // Update box1 background dynamically based on temperature range
+        const temp = Math.round(w.main.temp);
+        const box1 = document.querySelector(".box1");
+        if (box1) {
+            let bgUrl = "";
+            if (temp < 5) {
+                bgUrl = "https://images.unsplash.com/photo-1516820208784-270b250306e3?q=90&w=1920"; // Very Cold: Snowy/Icy
+            } else if (temp >= 5 && temp < 15) {
+                bgUrl = "https://images.unsplash.com/photo-1485236715568-ddc5ee6ca227?q=90&w=1920"; // Cold: Foggy/Winter
+            } else if (temp >= 15 && temp < 22) {
+                bgUrl = "https://images.unsplash.com/photo-1561553873-e8491a564fd0?q=90&w=1920"; // Cool: Cloudy/Soft blue sky
+            } else if (temp >= 22 && temp < 30) {
+                bgUrl = "https://images.unsplash.com/photo-1601297183305-6df142704ea2?q=90&w=1920"; // Warm: Sunny pleasant
+            } else if (temp >= 30 && temp < 38) {
+                bgUrl = "https://images.unsplash.com/photo-1504386106331-3e4e71712b38?q=90&w=1920"; // Hot: Bright summer/Sunlight
+            } else {
+                bgUrl = "https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=90&w=1920"; // Extreme Heat: Desert
+            }
+            box1.style.backgroundImage = `url('${bgUrl}')`;
+        }
+
         // Move Google Map to this city
         if (w.coord && w.coord.lat !== undefined && w.coord.lon !== undefined) {
             const lat = w.coord.lat;
@@ -151,7 +172,6 @@ async function fetchWeatherByCity(cityName) {
 
     } catch (error) {
         console.error("Weather fetch error:", error);
-        alert("City not found");
     }
 }
 
@@ -173,6 +193,45 @@ document.addEventListener("DOMContentLoaded", () => {
                 const city = searchInput.value.trim();
                 if (!city) return;
                 fetchWeatherByCity(city);
+            }
+        });
+    }
+
+    // Hamburger menu logic
+    const hamburger = document.getElementById('hamburger-menu');
+    const overlayMenu = document.getElementById('overlay_menu');
+    if (hamburger && overlayMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            overlayMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking a link
+        const menuLinks = overlayMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                overlayMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!hamburger.contains(event.target) && !overlayMenu.contains(event.target) && overlayMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                overlayMenu.classList.remove('active');
+            }
+        });
+    }
+
+    // Smooth scroll to top when clicking logo on home page
+    const navLeft = document.querySelector('.nav-left');
+    if (navLeft) {
+        navLeft.addEventListener('click', (e) => {
+            const path = window.location.pathname;
+            if (path.endsWith('index.html') || path.endsWith('/') || path === '') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
     }

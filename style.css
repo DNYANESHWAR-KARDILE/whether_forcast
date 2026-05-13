@@ -24,6 +24,16 @@ body {
     justify-content: space-evenly;
     position: fixed;
     top: 0%;
+    z-index: 9999;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    position: absolute;
+    left: 4rem;
 }
 
 .logo {
@@ -31,21 +41,22 @@ body {
     background-size: cover;
     width: 4rem;
     height: 4rem;
-    position: absolute;
-    left: 4rem;
 }
 
 .navbar h2 {
     color: #2563EB;
-    position: absolute;
-    left: 8.6rem;
+    white-space: nowrap;
 }
 
 .nav_hero {
     display: flex;
-    justify-content: space-evenly;
-    width: 70%;
+    justify-content: center;
+    width: 100%;
+}
 
+.hero_link {
+    display: flex;
+    justify-content: center;
 }
 
 .hero_link a {
@@ -58,26 +69,160 @@ body {
     font-weight: 600;
 }
 
-.hero_link :hover {
+.hero_link a:hover {
     text-decoration: underline;
-
 }
 
-.signin button {
-    background-color: #0058BE;
-    width: 6.8rem;
-    height: 2.1rem;
-    color: #ffffff;
-    font-size: 0.8rem;
-    border-radius: 1rem;
-    position: relative;
-    right: 2.6rem;
+.hero_link a.active {
+    color: #1D4ED8;
+    text-decoration: underline;
+}
+
+/* Hamburger Icon */
+.hamburger {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     cursor: pointer;
+    z-index: 10000;
+    position: absolute;
+    right: 4rem;
 }
 
-.signin button:hover {
-    background-color: white;
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger active animation */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* Overlay Menu */
+.overlay_menu {
+    position: fixed;
+    top: -100%; /* Slide down animation */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 9998; /* Just below navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: top 0.4s ease-in-out;
+}
+
+.overlay_menu.active {
+    top: 0;
+}
+
+.menu_links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.menu_links a {
+    text-decoration: none;
+    font-size: 2rem;
     color: black;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.menu_links a:hover {
+    color: #2563EB;
+}
+
+.menu_links a.active {
+    color: #1D4ED8;
+    text-decoration: underline;
+}
+
+/* Desktop Popup Menu Override */
+@media (min-width: 769px) {
+    .overlay_menu {
+        position: absolute;
+        top: 60px;
+        right: 4rem;
+        left: auto;
+        width: 220px;
+        height: auto;
+        background: rgba(220, 246, 250, 0.8);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 16px;
+        padding: 1rem;
+        box-shadow: 0 10px 30px rgba(31, 38, 135, 0.15);
+        
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        display: block; /* Override flex */
+    }
+
+    .overlay_menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        top: 4.6rem;
+    }
+
+    .menu_links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .menu_links a {
+        font-size: 1.1rem;
+        color: #1F2937;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        padding: 10px 15px;
+        border-radius: 8px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .menu_links a:hover {
+        color: #1D4ED8;
+        background: rgba(255, 255, 255, 0.6);
+        transform: translateX(5px);
+    }
+
+    .menu_links a:active {
+        transform: scale(0.95) translateX(5px);
+    }
+
+    .menu_links a.active {
+        color: #1D4ED8;
+        background: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+    }
 }
 
 /* Hero Section */
@@ -153,8 +298,12 @@ body {
 .search_box input {
     height: 2.6rem;
     width: 75%;
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 1rem;
     border: none;
+    margin-left: 10px;
+    padding-left: 15px;
+    box-sizing: border-box;
     font-size: 1.3rem;
 }
 
@@ -175,10 +324,32 @@ body {
     width: 940px;
     height: 400px;
     background-color: white;
-
     border-radius: 1rem;
     display: flex;
     justify-content: space-evenly;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.8s ease-in-out;
+}
+
+.box1::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.1) 100%);
+    z-index: 1;
+    border-radius: 1rem;
+    transition: background 0.8s ease-in-out;
+}
+
+.box1 > * {
+    position: relative;
+    z-index: 2;
 }
 
 .box2 {
@@ -195,8 +366,9 @@ body {
 
 .location i {
     font-size: 1.8rem;
-    color: #1D4ED8;
+    color: #ffffff;
     margin-top: 8px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .location {
@@ -207,9 +379,10 @@ body {
 
 .location p {
     font-size: 40px;
-    color: #1D4ED8;
+    color: #ffffff;
     font-weight: bold;
     margin-left: 15px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .temprature {
@@ -219,13 +392,15 @@ body {
 .fera {
     font-size: 140px;
     font-weight: 700;
-    color: #1D4ED8;
+    color: #ffffff;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.6);
 }
 
 .ferai {
     font-size: 35px;
-    color: #1D4ED8;
+    color: #E5E7EB;
     font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .tempinfo {
@@ -237,19 +412,27 @@ body {
 .humidity {
     height: 45px;
     width: 145px;
-    background-color: #DBEAFE;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 15px;
     text-align: center;
 }
 
 .humidity p {
     margin-top: 8%;
+    color: #ffffff;
+    font-weight: 500;
 }
 
 .wind {
     height: 45px;
     width: 145px;
-    background-color: #DBEAFE;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 15px;
     margin-left: 10px;
     text-align: center;
@@ -257,19 +440,24 @@ body {
 
 .wind p {
     margin-top: 8%;
+    color: #ffffff;
+    font-weight: 500;
 }
 
 .right i {
-    color: #1D4ED8;
+    color: #ffffff;
     font-size: 150px;
     font-weight: bold;
     margin-top: 5.6rem;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .right p {
     font-size: 1.2rem;
     font-weight: 700;
     margin-top: 12%;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 #ut {
@@ -387,14 +575,13 @@ body {
 
 #rodmap {
     width: 100%;
-    padding: 2rem 5%;
+    padding: 5rem 5% 2rem;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
 }
 
-.map {
-    height: 65vh;
+.map_container {
     width: 100%;
     max-width: 1200px;
     background: rgba(255, 255, 255, 0.7);
@@ -402,11 +589,36 @@ body {
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
-    border-radius: 20px;
+    border-radius: 24px;
     overflow: hidden;
     transition: all 0.3s ease;
     position: relative;
-    z-index: 10;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.map_container:hover {
+    box-shadow: 0 15px 40px 0 rgba(31, 38, 135, 0.2);
+    transform: translateY(-5px);
+}
+
+.map_header_inside {
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+}
+
+#map_title {
+    color: #1D4ED8;
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.map_view {
+    width: 100%;
+    height: 70vh;
 }
 
 .map:hover {
@@ -498,12 +710,11 @@ body {
         padding: 0 1.25rem;
     }
 
-    .logo{
-        left: 1rem;
+    .nav-left {
+        left: 1.5rem;
     }
 
     .navbar h2{
-        left: 5.5rem;
         font-size: 1.5rem;
     }
 
@@ -520,9 +731,8 @@ body {
         font-size: 0.95rem;
     }
 
-    .signin button{
-        right: 0;
-        padding: 0.7rem 1.4rem;
+    .hamburger{
+        right: 2rem;
     }
 
     .heroheading h1{
@@ -557,9 +767,9 @@ body {
         gap: 1rem;
     }
 
-    .map{
+    .map_view{
         width: 100%;
-        height: 50vh;
+        height: 60vh;
     }
 }
 
@@ -581,7 +791,7 @@ body {
         top: 0;
         left: 0;
         background-color: white;
-        z-index: 1000;
+        z-index: 9999;
     }
 
     /* Left Side Logo + Text */
@@ -589,6 +799,7 @@ body {
         display: flex;
         align-items: center;
         gap: 10px;
+        text-decoration: none;
     }
 
     /* Logo */
@@ -605,7 +816,7 @@ body {
         position: static;
         font-size: 1.3rem;
         color: #2563EB;
-        margin-left: -7rem;
+        margin-left: 0;
         white-space: nowrap;
     }
 
@@ -614,36 +825,9 @@ body {
         display: none;
     }
 
-    /* Right Side Button */
-    .signin{
-        width: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .signin button{
-        position: static;
-        width: 6rem;
-        height: 2.3rem;
-
-        border: none;
-        border-radius: 10px;
-
-        font-size: 0.9rem;
-        font-weight: 500;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        text-align: center;
-
-        padding: 0;
-        margin: 0;
-        margin-right: 2rem;
-
-        cursor: pointer;
+    .hamburger{
+      
+        margin-right: 1.5rem;
     }
 
     /* Hero */
@@ -775,12 +959,20 @@ body {
 
     /* Map */
     #rodmap {
-        padding: 1.5rem 5%;
+        padding: 4rem 5% 1.5rem;
     }
 
-    .map{
+    .map_header_inside {
+        padding: 1.2rem 1rem 1rem;
+    }
+
+    #map_title {
+        font-size: 1.4rem;
+    }
+
+    .map_view {
         width: 100%;
-        height: 45vh;
+        height: 55vh;
         margin: 0;
     }
 
