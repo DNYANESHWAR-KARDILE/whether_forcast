@@ -6,7 +6,7 @@ const OW_KEY = "113b48090a3af60c1239db547baabd87";
 // Initialize the map
 function initMap() {
     // Default location: India
-    const defaultLoc = { lat: 20.5937, lng: 78.9629 };
+    const defaultLoc = { lat: 19.9975, lng: 73.7898 };
 
     map = new google.maps.Map(document.getElementById("map"), {
         zoom: 5,
