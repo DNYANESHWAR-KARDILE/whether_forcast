@@ -5,6 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Sky Glass</title>
+    <meta name="description" content="Learn more about Sky Glass, a premium weather dashboard delivering precision atmospheric data and an elegant glassmorphism UI.">
+    <meta name="keywords" content="About Sky Glass, Weather App, Live Weather, Forecast, Developer">
+    <meta name="author" content="Kardile Dnyaneshwar">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="About - Sky Glass">
+    <meta property="og:description" content="Learn more about Sky Glass, a premium weather dashboard delivering precision atmospheric data.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sky-glasss.netlify.app/about.html">
+    <meta property="og:image" content="https://sky-glasss.netlify.app/img/logobl.png">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About - Sky Glass">
+    <meta name="twitter:description" content="Learn more about Sky Glass, a premium weather dashboard.">
+    <meta name="twitter:image" content="https://sky-glasss.netlify.app/img/logobl.png">
+
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="img/logobl.png">
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="about.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +38,7 @@
 
 <body>
     <!-- Navbar -->
-    <section id="nav">
+    <header id="nav">
         <div class="navbar">
             <a href="index.html" class="nav-left">
                 <div class="logo"></div>
@@ -30,11 +52,11 @@
                     <a href="contact.html">Contact</a>
                 </div>
             </div>
-            <div class="hamburger" id="hamburger-menu">
+            <button class="hamburger" id="hamburger-menu" aria-label="Toggle Navigation" style="background: none; border: none;">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
 
         <div class="overlay_menu" id="overlay_menu">
@@ -47,10 +69,10 @@
                 <a href="about.html#developer">Developer</a>
             </div>
         </div>
-    </section>
+    </header>
 
     <!-- About Section -->
-    <div class="about_hero_section">
+    <main class="about_hero_section">
         <!-- 2. ABOUT WEBSITE SECTION -->
         <div class="about_container">
             <div class="about_header glass">
@@ -62,10 +84,10 @@
 
             <div class="about_gallery">
                 <div class="gallery_img_wrapper glass" style="animation-delay: 0.1s;">
-                    <img src="img/weather_preview_desktop.png" alt="Desktop Interface Preview" class="gallery_img">
+                    <img src="img/weather_preview_desktop.png" alt="Sky Glass Desktop Interface Preview" class="gallery_img" loading="lazy">
                 </div>
                 <div class="gallery_img_wrapper glass" style="animation-delay: 0.2s;">
-                    <img src="img/weather_preview_mobile.png" alt="Mobile Interface Preview" class="gallery_img">
+                    <img src="img/weather_preview_mobile.png" alt="Sky Glass Mobile Interface Preview" class="gallery_img" loading="lazy">
                 </div>
             </div>
 
@@ -128,7 +150,7 @@
             <div class="developer_card glass">
                 <div class="profile_img_container">
                     <div class="profile_img_wrapper">
-                        <img src="img/devloper.jpeg" alt="Developer Profile" class="profile_img">
+                        <img src="img/devloper.jpeg" alt="Developer Kardile Dnyaneshwar Profile" class="profile_img" loading="lazy">
                     </div>
                 </div>
                 <h2>Kardile Dnyaneshwar Uddhav</h2>
@@ -138,13 +160,13 @@
                     Skilled in HTML, CSS, JavaScript, APIs, and modern UI design with a strong interest in creative
                     frontend development.</p>
                 <div class="dev_social">
-                    <a href="#"><i class="fa-brands fa-github"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="GitHub Profile"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter Profile"><i class="fa-brands fa-twitter"></i></a>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <!-- footer section -->
     <footer class="footer">
@@ -152,7 +174,7 @@
             <div class="footer-logo">
                 <h2>Sky Glass</h2>
                 <p>Your daily weather updates.</p>
-                <img src="img/logobl.png" alt="" height="70px" width="70px">
+                <img src="img/logobl.png" alt="Sky Glass Logo" height="70px" width="70px" loading="lazy">
             </div>
 
             <div class="footer-links">
@@ -168,8 +190,8 @@
             <div class="footer-social">
                 <h3>Follow Us</h3>
                 <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/_mauli_kardile_?igsh=MW9jZTJrYnExN2NsaA==" target="_blank"><i
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/_mauli_kardile_?igsh=MW9jZTJrYnExN2NsaA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i
                             class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
@@ -180,7 +202,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>

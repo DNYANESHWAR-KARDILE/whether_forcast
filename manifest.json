@@ -1,0 +1,21 @@
+{
+  "name": "Sky Glass",
+  "short_name": "Sky Glass",
+  "description": "A modern weather forecasting application.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#dcf6fa",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/img/logobl.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/logobl.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

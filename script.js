@@ -5,11 +5,11 @@ const OW_KEY = "113b48090a3af60c1239db547baabd87";
 
 // Initialize the map
 function initMap() {
-    // Default location: India
-    const defaultLoc = { lat: 19.9975, lng: 73.7898 };
+    // Default location: Mumbai, Maharashtra, India
+    const defaultLoc = { lat: 19.0760, lng: 72.8777 };
 
     map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 5,
+        zoom: 10,
         center: defaultLoc,
     });
 
@@ -18,9 +18,37 @@ function initMap() {
         map: map,
     });
 
-    // Load India weather on page load
-    fetchWeatherByCity("India");
+    // Handle map loading and mobile resizing
+    google.maps.event.addListenerOnce(map, 'idle', function(){
+        const loader = document.getElementById('map-loader');
+        if (loader) loader.style.display = 'none';
+        
+        // Force resize to fix blank map issues on mobile
+        google.maps.event.trigger(map, 'resize');
+        map.setCenter(defaultLoc);
+    });
+
+    // Handle window resize to ensure map is responsive
+    window.addEventListener('resize', () => {
+        if (map) {
+            google.maps.event.trigger(map, 'resize');
+            if (marker) map.setCenter(marker.getPosition());
+        }
+    });
+
+    // Load Mumbai weather on page load
+    fetchWeatherByCity("Mumbai, Maharashtra, India");
 }
+
+// Fallback if Google Maps fails to load
+setTimeout(() => {
+    if (!window.google || !window.google.maps) {
+        const loader = document.getElementById('map-loader');
+        if (loader) {
+            loader.innerHTML = '<p style="color: red; font-weight: bold; font-size: 1.2rem;">Failed to load map. Please check your connection.</p>';
+        }
+    }
+}, 10000);
 
 // Map OpenWeather conditions to Material Symbols
 function getWeatherIcon(condition) {

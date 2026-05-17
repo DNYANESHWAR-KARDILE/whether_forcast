@@ -21,7 +21,49 @@
 
     <meta property="og:url" content="https://sky-glasss.netlify.app/">
 
-    <meta property="og:image" content="https://sky-glasss.netlify.app/logobl.png">
+    <meta property="og:image" content="https://sky-glasss.netlify.app/img/logobl.png">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sky Glass | Weather Checking Website">
+    <meta name="twitter:description" content="Check real-time weather updates, temperature, humidity, and forecasts with Sky Glass.">
+    <meta name="twitter:image" content="https://sky-glasss.netlify.app/img/logobl.png">
+
+    <!-- SEO Indexing -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Web App Manifest & Apple Touch Icon -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="img/logobl.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Sky Glass",
+      "url": "https://sky-glasss.netlify.app/",
+      "description": "A modern weather forecasting application providing real-time weather updates and location-based forecasts.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://sky-glasss.netlify.app/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Sky Glass",
+      "url": "https://sky-glasss.netlify.app/",
+      "logo": "https://sky-glasss.netlify.app/img/logobl.png",
+      "location": {
+        "@type": "Place",
+        "name": "Mumbai, Maharashtra, India"
+      }
+    }
+    </script>
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#0f172a">
@@ -39,7 +81,7 @@
 
 <body>
     <!-- Navbar -->
-    <section id="nav">
+    <header id="nav">
         <div class="navbar">
             <a href="index.html" class="nav-left">
                 <div class="logo"></div>
@@ -53,11 +95,11 @@
                     <a href="contact.html">Contact</a>
                 </div>
             </div>
-            <div class="hamburger" id="hamburger-menu">
+            <button class="hamburger" id="hamburger-menu" aria-label="Toggle Navigation" style="background: none; border: none;">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
 
         <div class="overlay_menu" id="overlay_menu">
@@ -70,10 +112,10 @@
                 <a href="about.html#developer">Developer</a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Hero Section -->
-    <div class="hero_section">
+    <!-- Main Content -->
+    <main class="hero_section">
         <div class="heroheading">
             <h1>Check Weather Anytime</h1>
             <p class="p1">Precision atmospheric data for your exact location. Experience the sky </p>
@@ -83,8 +125,8 @@
         <div class="input_search">
             <div class="search_box">
                 <i></i>
-                <input type="text" placeholder="Enter City Or Zip Code">
-                <button>Get Weather</button>
+                <input type="text" placeholder="Enter City Or Zip Code" aria-label="City or Zip Code Search">
+                <button aria-label="Get Weather">Get Weather</button>
             </div>
         </div>
 
@@ -95,10 +137,10 @@
                 <div class="left">
                     <div class="location">
                         <i class="fa-solid fa-location-dot"></i>
-                        <p> San Francisco, CA</p>
+                        <p> Mumbai, Maharashtra, India</p>
                     </div>
                     <div class="temprature">
-                        <p class="fera">72°F</p>
+                        <p class="fera">30°C</p>
                         <p class="ferai">Partly Cloudy</p>
                     </div>
                     <div class="tempinfo">
@@ -106,14 +148,14 @@
                             <p>Humidity: 45%</p>
                         </div>
                         <div class="wind">
-                            <p>Wind: 10mph</p>
+                            <p>Wind: 10km/h</p>
                         </div>
                     </div>
                 </div>
                 <section id="forc">
                     <div class="right">
                         <i class="fa-solid fa-cloud-sun"></i>
-                        <p>Feels like 68°F</p>
+                        <p>Feels like 32°C</p>
                     </div>
                 </section>
 
@@ -150,7 +192,7 @@
                     <span class="material-symbols-outlined">
                         sunny
                     </span>
-                    <h3>78° / 62°</h3>
+                    <h3>26°C / 17°C</h3>
                     <p>Sunny</p>
                 </div>
 
@@ -159,7 +201,7 @@
                     <span class="material-symbols-outlined">
                         partly_cloudy_day
                     </span>
-                    <h3>75° / 60°</h3>
+                    <h3>24°C / 16°C</h3>
                     <p>Cloudy</p>
                 </div>
 
@@ -168,7 +210,7 @@
                     <span class="material-symbols-outlined">
                         rainy
                     </span>
-                    <h3>68° / 55°</h3>
+                    <h3>20°C / 13°C</h3>
                     <p>Showers</p>
                 </div>
 
@@ -177,7 +219,7 @@
                     <span class="material-symbols-outlined">
                         cloudy_snowing
                     </span>
-                    <h3>70° / 58°</h3>
+                    <h3>21°C / 14°C</h3>
                     <p>Overcast</p>
                 </div>
 
@@ -186,7 +228,7 @@
                     <span class="material-symbols-outlined">
                         sunny
                     </span>
-                    <h3>74° / 61°</h3>
+                    <h3>23°C / 16°C</h3>
                     <p>Clear</p>
                 </div>
 
@@ -195,9 +237,12 @@
 
         <!-- map section -->
         <section id="rodmap">
-            <div class="map_container">
+            <div class="map_container" style="position: relative;">
                 <div class="map_header_inside">
                     <h2 id="map_title">Live Location Map</h2>
+                </div>
+                <div id="map-loader" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.8); z-index: 10;">
+                    <p style="color: #1D4ED8; font-weight: bold; font-size: 1.2rem;">Loading Map...</p>
                 </div>
                 <div class="map_view" id="map"></div>
             </div>
@@ -205,7 +250,7 @@
 
 
 
-    </div>
+    </main>
 
     <!-- footer section -->
 
@@ -215,7 +260,7 @@
             <div class="footer-logo">
                 <h2>Sky Glass</h2>
                 <p>Your daily weather updates.</p>
-                <img src="img/logobl.png" alt="" height="70px" width="70px">
+                <img src="img/logobl.png" alt="Sky Glass Logo" height="70px" width="70px" loading="lazy">
 
 
             </div>
@@ -233,8 +278,8 @@
             <div class="footer-social">
                 <h3>Follow Us</h3>
                 <div class="social-icons">
-                    <a href="viva.html"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/_mauli_kardile_?igsh=MW9jZTJrYnExN2NsaA==" target="_blank"><i
+                    <a href="viva.html" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/_mauli_kardile_?igsh=MW9jZTJrYnExN2NsaA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i
                             class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
@@ -249,7 +294,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi5PjJl2d7AVUquNmXVOz-rEv7zuLrx6M&callback=initMap"
         async defer>
         </script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
