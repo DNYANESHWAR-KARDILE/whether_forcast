@@ -277,51 +277,49 @@ const installBtn = document.getElementById("installBtn");
 // Default hidden
 installBox.style.display = "none";
 
-// Install prompt available
-window.addEventListener("beforeinstallprompt", (e) => {
+// Check if app already installed
+const isStandalone =
+  window.matchMedia('(display-mode: standalone)').matches ||
+  window.navigator.standalone === true;
+
+// Agar app installed nahi hai tabhi show karo
+if (!isStandalone) {
+
+  window.addEventListener("beforeinstallprompt", (e) => {
 
     e.preventDefault();
 
     deferredPrompt = e;
 
-    // Agar app pehle se install nahi hai
-    if(localStorage.getItem("appInstalled") !== "true"){
-        installBox.style.display = "flex";
-    }
+    installBox.style.display = "flex";
+  });
 
-});
+}
 
 // Install button click
 installBtn.addEventListener("click", async () => {
 
-    if (!deferredPrompt) return;
+  if (!deferredPrompt) return;
 
-    deferredPrompt.prompt();
+  deferredPrompt.prompt();
 
-    const { outcome } = await deferredPrompt.userChoice;
+  const { outcome } = await deferredPrompt.userChoice;
 
-    if (outcome === "accepted") {
+  if (outcome === "accepted") {
 
-        console.log("App Installed");
+    console.log("App Installed");
 
-        // Hide install box
-        installBox.style.display = "none";
+    installBox.style.display = "none";
+  }
 
-        // Save installed status
-        localStorage.setItem("appInstalled", "true");
-    }
-
-    deferredPrompt = null;
+  deferredPrompt = null;
 
 });
 
-// App installed successfully
+// Installed successfully
 window.addEventListener("appinstalled", () => {
 
-    console.log("PWA Installed");
+  console.log("PWA Installed");
 
-    installBox.style.display = "none";
-
-    localStorage.setItem("appInstalled", "true");
-
+  installBox.style.display = "none";
 });
