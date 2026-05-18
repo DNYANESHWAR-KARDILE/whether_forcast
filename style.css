@@ -78,6 +78,73 @@ body {
     text-decoration: underline;
 }
 
+/* install app button */
+
+.installbtn{
+    width: 90%;
+    max-width: 500px;
+    min-height: 1rem;
+    background-color: white;
+    margin: 2rem auto 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 1rem;
+    border-radius: 1rem;
+
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.installbtn p{
+    margin: 0;
+    font-size: 1rem;
+}
+
+#installBtn{
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 12px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0%{
+        background: #2563EB;
+        box-shadow: 0 0 5px #2563EB;
+    }
+    50%{
+        background: white;
+        box-shadow: 0 0 20px white;
+        color: black;
+    }
+    100%{
+        background: #2563EB;
+        box-shadow: 0 0 5px #2563EB;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px){
+
+    .installbtn{
+        flex-direction: column;
+        width: 95%;
+        padding: 1rem;
+    }
+
+    #installBtn{
+        width: 100%;
+    }
+}
+
 /* Hamburger Icon */
 .hamburger {
     width: 30px;
@@ -316,22 +383,33 @@ body {
 
 .resultbox {
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 6rem;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+    width: 95%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .box1 {
-    width: 940px;
-    height: 400px;
+    flex: 2 1 60%;
+    min-width: 320px;
+    min-height: 400px;
     background-color: white;
     border-radius: 1rem;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     position: relative;
     overflow: hidden;
     background-size: cover;
     background-position: center;
     transition: background-image 0.8s ease-in-out;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 .box1::before {
@@ -353,11 +431,16 @@ body {
 }
 
 .box2 {
-    width: 440px;
-    height: 400px;
+    flex: 1 1 30%;
+    min-width: 300px;
+    min-height: 400px;
     background-color: white;
-    margin-right: 40px;
     border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 .left {
@@ -367,13 +450,12 @@ body {
 .location i {
     font-size: 1.8rem;
     color: #ffffff;
-    margin-top: 8px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .location {
     display: flex;
-    margin-top: 30px;
+    align-items: center;
     text-align: left;
 }
 
@@ -394,6 +476,7 @@ body {
     font-weight: 700;
     color: #ffffff;
     text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    line-height: 1;
 }
 
 .ferai {
@@ -406,7 +489,6 @@ body {
 .tempinfo {
     display: flex;
     margin-top: 20px;
-
 }
 
 .humidity {
@@ -417,11 +499,12 @@ body {
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 15px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .humidity p {
-    margin-top: 8%;
     color: #ffffff;
     font-weight: 500;
 }
@@ -435,90 +518,93 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 15px;
     margin-left: 10px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .wind p {
-    margin-top: 8%;
     color: #ffffff;
     font-weight: 500;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .right i {
     color: #ffffff;
     font-size: 150px;
     font-weight: bold;
-    margin-top: 5.6rem;
     text-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .right p {
     font-size: 1.2rem;
     font-weight: 700;
-    margin-top: 12%;
+    margin-top: 1rem;
+    text-align: center;
     color: #ffffff;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 #ut {
     color: #6B7280;
-    margin-top: 8%;
-    margin-left: 1.2rem;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
-    width: 70%;
-
 }
 
 .uvhead {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .uvhead i {
     font-size: 2rem;
-    margin-top: 8%;
 }
 
 #uvindex {
     text-align: center;
     font-size: 5rem;
     font-weight: 700;
-    margin-top: 3.1rem;
+    margin-top: 1rem;
     color: #1D4ED8;
 }
 
 #uvstate {
     text-align: center;
-    margin-top: 1.2rem;
+    margin-top: 0.5rem;
     color: #6B7280;
 }
 
 .progress {
-    width: 70%;
-    margin-top: 1.2rem;
+    width: 80%;
+    margin-top: 1.5rem;
     height: 0.6rem;
     background-color: #e0e0e0;
-    margin-left: 15%;
+    margin: 1.5rem auto 0 auto;
     border-radius: 6px;
 }
 
 .fill {
-
     height: 0.6rem;
     width: 40%;
     background-color: #1D4ED8;
     position: relative;
     left: 0;
     border-radius: 6px;
-
 }
 
 #pm {
     text-align: center;
     margin-top: 1rem;
     color: #6B7280;
-
 }
 
 /* weakly forcast */
@@ -699,6 +785,23 @@ body {
 
 
 /* responsive */
+
+/* =========================
+   LAPTOP / DESKTOP RESPONSIVE
+========================= */
+
+@media (max-width: 1200px) {
+    .resultbox {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .box1, .box2 {
+        width: 100%;
+        max-width: 800px; /* Limit width nicely when stacked */
+        flex: none; /* Override base flex to just be block-like */
+    }
+}
 
 /* =========================
    TABLET

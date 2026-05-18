@@ -266,3 +266,62 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.initMap = initMap;
+
+// for install app
+
+let deferredPrompt;
+
+const installBox = document.querySelector(".installbtn");
+const installBtn = document.getElementById("installBtn");
+
+// Default hidden
+installBox.style.display = "none";
+
+// Install prompt available
+window.addEventListener("beforeinstallprompt", (e) => {
+
+    e.preventDefault();
+
+    deferredPrompt = e;
+
+    // Agar app pehle se install nahi hai
+    if(localStorage.getItem("appInstalled") !== "true"){
+        installBox.style.display = "flex";
+    }
+
+});
+
+// Install button click
+installBtn.addEventListener("click", async () => {
+
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();
+
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === "accepted") {
+
+        console.log("App Installed");
+
+        // Hide install box
+        installBox.style.display = "none";
+
+        // Save installed status
+        localStorage.setItem("appInstalled", "true");
+    }
+
+    deferredPrompt = null;
+
+});
+
+// App installed successfully
+window.addEventListener("appinstalled", () => {
+
+    console.log("PWA Installed");
+
+    installBox.style.display = "none";
+
+    localStorage.setItem("appInstalled", "true");
+
+});
