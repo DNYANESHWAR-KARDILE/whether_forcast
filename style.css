@@ -136,7 +136,7 @@ body {
 
     .installbtn{
         flex-direction: column;
-        width: 95%;
+        width: 70%;
         padding: 1rem;
     }
 
