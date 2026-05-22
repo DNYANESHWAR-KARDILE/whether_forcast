@@ -78,73 +78,6 @@ body {
     text-decoration: underline;
 }
 
-/* install app button */
-
-.installbtn{
-    width: 90%;
-    max-width: 500px;
-    min-height: 1rem;
-    background-color: white;
-    margin: 2rem auto 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    padding: 1rem;
-    border-radius: 1rem;
-
-    text-align: center;
-    flex-wrap: wrap;
-}
-
-.installbtn p{
-    margin: 0;
-    font-size: 1rem;
-}
-
-#installBtn{
-    padding: 0.7rem 1rem;
-    border: none;
-    border-radius: 12px;
-    background: black;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-
-    animation: blink 1s infinite;
-}
-@keyframes blink {
-    0%{
-        background: #2563EB;
-        box-shadow: 0 0 5px #2563EB;
-    }
-    50%{
-        background: white;
-        box-shadow: 0 0 20px white;
-        color: black;
-    }
-    100%{
-        background: #2563EB;
-        box-shadow: 0 0 5px #2563EB;
-    }
-}
-
-/* Mobile Responsive */
-@media (max-width: 600px){
-
-    .installbtn{
-        flex-direction: column;
-        width: 70%;
-        padding: 1rem;
-    }
-
-    #installBtn{
-        width: 100%;
-    }
-}
-
 /* Hamburger Icon */
 .hamburger {
     width: 30px;
@@ -794,6 +727,10 @@ body {
     .resultbox {
         flex-direction: column;
         align-items: center;
+    }
+
+    .installbtn {
+        display: none;
     }
     
     .box1, .box2 {
