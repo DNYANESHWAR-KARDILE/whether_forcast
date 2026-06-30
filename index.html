@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-App | Weather Checking Website</title>
+    <meta name="description"
+        content="Sky Glass is a modern weather checking website that provides real-time weather updates, temperature, humidity, wind speed, and location-based forecasts with a beautiful glassmorphism UI.">
+
+    <meta name="keywords"
+        content="Sky Glass, Weather App, Weather Website, Live Weather, Forecast, Temperature Checker, Humidity, Wind Speed, Glassmorphism UI, HTML CSS JavaScript">
+
+    <meta name="author" content="Kardile Dnyaneshwar">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Sky Glass | Weather Checking Website">
+
+    <meta property="og:description" content="Check real-time weather updates, temperature, humidity, and forecasts with Sky Glass.">
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:url" content="https://sky-glasss.netlify.app/">
+
+    <meta property="og:image" content="https://sky-glasss.netlify.app/img/logobl.png">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sky Glass | Weather Checking Website">
+    <meta name="twitter:description" content="Check real-time weather updates, temperature, humidity, and forecasts with Sky Glass.">
+    <meta name="twitter:image" content="https://sky-glasss.netlify.app/img/logobl.png">
+
+    <!-- SEO Indexing -->
+    <meta name="robots" content="index, follow">
+
+    <!-- Web App Manifest & Apple Touch Icon -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="img/logobl.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Sky Glass",
+      "url": "https://sky-glasss.netlify.app/",
+      "description": "A modern weather forecasting application providing real-time weather updates and location-based forecasts.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://sky-glasss.netlify.app/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Sky Glass",
+      "url": "https://sky-glasss.netlify.app/",
+      "logo": "https://sky-glasss.netlify.app/img/logobl.png",
+      "location": {
+        "@type": "Place",
+        "name": "Mumbai, Maharashtra, India"
+      }
+    }
+    </script>
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- link icons fonts -->
+    <link rel="icon" type="image/png" href="img/logobl.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: {
+          preflight: false,
+        }
+      }
+    </script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header id="nav">
+        <div class="navbar">
+            <a href="index.html" class="nav-left">
+                <div class="logo"></div>
+                <h2>Sky Glass</h2>
+            </a>
+            <div class="nav_hero">
+                <div class="hero_link">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="index.html#forc">Weather</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger-menu" aria-label="Toggle Navigation" style="background: none; border: none;">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="overlay_menu" id="overlay_menu">
+            <div class="menu_links">
+                <a href="index.html" class="active">Home</a>
+                <a href="index.html#forc">Weather</a>
+                <a href="index.html#rodmap">Map</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="about.html#developer">Developer</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="hero_section">
+        <div class="heroheading">
+            <h1>Check Weather Anytime</h1>
+            <p class="p1">Precision atmospheric data for your exact location. Experience the sky </p>
+            <p class="p2">through the clarity of SkyGlass</p>
+        </div>
+        <!-- search input -->
+        <div class="input_search">
+            <div class="search_box">
+                <i></i>
+                <input type="text" placeholder="Enter City Or Zip Code" aria-label="City or Zip Code Search">
+                <button aria-label="Get Weather">Get Weather</button>
+            </div>
+            
+        </div>
+
+        <!-- result box -->
+        <div class="resultbox">
+            <div class="box1">
+                <div class="left">
+                    <div class="location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p> Mumbai, Maharashtra, India</p>
+                    </div>
+                    <div class="temprature">
+                        <p class="fera">30°C</p>
+                        <p class="ferai">Partly Cloudy</p>
+                    </div>
+                    <div class="tempinfo">
+                        <div class="humidity">
+                            <p>Humidity: 45%</p>
+                        </div>
+                        <div class="wind">
+                            <p>Wind: 10km/h</p>
+                        </div>
+                    </div>
+                </div>
+                <section id="forc">
+                    <div class="right">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                        <p>Feels like 32°C</p>
+                    </div>
+                </section>
+
+
+            </div>
+            <div class="box2">
+                <div class="uvhead">
+                    <p id="ut">UV INDEX</p>
+                    <i class="fa-solid fa-sun" style="color: rgb(255, 212, 59);"></i>
+                </div>
+
+                <p id="uvindex">4</p>
+                <p id="uvstate">Moderate</p>
+                <div class="progress">
+                    <div class="fill"></div>
+                </div>
+                <p id="pm">Protection recommended from 11am to 4pm.</p>
+
+            </div>
+        </div>
+
+
+
+        <!-- weakly result -->
+        <p id="wp">Weekly Forecast</p>
+
+        <section class="forecast-section">
+
+
+            <div class="forecast-grid">
+                <div class="forecast-card glass">
+
+                    <h4>MON</h4>
+                    <span class="material-symbols-outlined">
+                        sunny
+                    </span>
+                    <h3>26°C / 17°C</h3>
+                    <p>Sunny</p>
+                </div>
+
+                <div class="forecast-card glass">
+                    <h4>TUE</h4>
+                    <span class="material-symbols-outlined">
+                        partly_cloudy_day
+                    </span>
+                    <h3>24°C / 16°C</h3>
+                    <p>Cloudy</p>
+                </div>
+
+                <div class="forecast-card glass">
+                    <h4>WED</h4>
+                    <span class="material-symbols-outlined">
+                        rainy
+                    </span>
+                    <h3>20°C / 13°C</h3>
+                    <p>Showers</p>
+                </div>
+
+                <div class="forecast-card glass">
+                    <h4>THU</h4>
+                    <span class="material-symbols-outlined">
+                        cloudy_snowing
+                    </span>
+                    <h3>21°C / 14°C</h3>
+                    <p>Overcast</p>
+                </div>
+
+                <div class="forecast-card glass">
+                    <h4>FRI</h4>
+                    <span class="material-symbols-outlined">
+                        sunny
+                    </span>
+                    <h3>23°C / 16°C</h3>
+                    <p>Clear</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- map section -->
+        <section id="rodmap">
+            <div class="map_container" style="position: relative;">
+                <div class="map_header_inside">
+                    <h2 id="map_title">Live Location Map</h2>
+                </div>
+                <div id="map-loader" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: rgba(255,255,255,0.8); z-index: 10;">
+                    <p style="color: #1D4ED8; font-weight: bold; font-size: 1.2rem;">Loading Map...</p>
+                </div>
+                <div class="map_view" id="map"></div>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <!-- footer section -->
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <h2>Sky Glass</h2>
+                <p>Your daily weather updates.</p>
+                <img src="img/logobl.png" alt="Sky Glass Logo" height="70px" width="70px" loading="lazy">
+
+
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#wp">Forecast</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="viva.html" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/_mauli_kardile_?igsh=MW9jZTJrYnExN2NsaA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i
+                            class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Sky Glass. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi5PjJl2d7AVUquNmXVOz-rEv7zuLrx6M&callback=initMap"
+        async defer>
+        </script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>
